@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class ChildTrigger : MonoBehaviour
 {
-   
+    public static PathFollow pathFollow;
     // Start is called before the first frame update
     void Start()
     {
-     
+     pathFollow = GetComponent<PathFollow>();
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class ChildTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PathFollow.pathFollow.isFollow = true;
+           // PathFollow.isFollow = true;
             Debug.Log("hello");
         }
     }
@@ -28,7 +28,7 @@ public class ChildTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            PathFollow.pathFollow.isFollow = false;
+            //.isFollow = false;
             Debug.Log("bye");
         }
     }

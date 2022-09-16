@@ -10,14 +10,11 @@ public class PathFollow : MonoBehaviour
     public float moveSpeed = 10f;
     private NavMeshAgent NavMeshAgent;
     public bool isFollow;
-    public static PathFollow pathFollow;
+    //public PathFollow pathFollow;
 
     private void Awake()
     {
-        if(pathFollow == null)
-        {
-            pathFollow= this;
-        }
+        
     }
     // Start is called before the first frame update
     void Start()
@@ -32,7 +29,7 @@ public class PathFollow : MonoBehaviour
         if (isFollow)
         {
             Debug.Log("the thing");
-            NavMeshAgent.destination = objectToReach.position * moveSpeed * Time.deltaTime;
+            NavMeshAgent.SetDestination(objectToReach.position*moveSpeed*Time.deltaTime); 
             transform.LookAt(objectToReach.position);
             Quaternion.LookRotation(objectToReach.position);
         }
@@ -40,3 +37,4 @@ public class PathFollow : MonoBehaviour
 
     
 }
+
